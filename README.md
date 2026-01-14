@@ -17,6 +17,28 @@ Ushbu loyiha Go (Golang) tilida yozilgan zamonaviy va tezkor URL qisqartirgich s
 * **Frontend:** HTML5, CSS3, JavaScript (Fetch API)
 * **Storage:** JSON-based database
 
+## 📊 API Yo'nalishlari (Endpoints)
+
+Loyihada mavjud bo'lgan asosiy marshrutlar va ularning vazifalari:
+
+| Metod | Yo'nalish (Endpoint) | Vazifasi | Misol / Izoh |
+| :--- | :--- | :--- | :--- |
+| **GET** | `/` | Bosh sahifa | Foydalanuvchi interfeysini (UI) yuklaydi. |
+| **GET** | `/shorten?url={link}` | URL qisqartirish | `url` parametrida berilgan linkni qisqartirib qaytaradi. |
+| **GET** | `/r/{key}` | Yo'naltirish | Qisqa kod orqali asl URL manziliga yuboradi. |
+| **GET** | `/list` | Statistika | Barcha yaratilgan linklar va kliklar sonini ko'rsatadi. |
+| **GET** | `/list?delete={key}` | O'chirish | Berilgan kalit (key) bo'yicha linkni bazadan o'chiradi. |
+
+## 🛠 Ishlatish bo'yicha namunalar
+
+### 1. URL qisqartirish so'rovi:
+Brauzer yoki API mijoz (Postman) orqali:
+`http://localhost:8080/shorten?url=https://www.google.com`
+
+### 2. Statistikani ko'rish:
+Barcha ma'lumotlarni jadval ko'rinishida ko'rish uchun:
+`http://localhost:8080/list`
+
 ## 📁 Fayllar strukturasi
 
 Sizning loyihangiz quyidagi tartibda tuzilgan:
