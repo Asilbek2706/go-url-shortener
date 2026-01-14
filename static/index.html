@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Go Shortener</title>
+    <style>
+        body { font-family: sans-serif; display: flex; justify-content: center; padding: 50px; background: #f4f4f9; }
+        .card { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); width: 400px; }
+        input { width: 90%; padding: 10px; margin-bottom: 10px; border: 1px solid #ddd; border-radius: 5px; }
+        button { width: 100%; padding: 10px; background: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; }
+        #result { margin-top: 20px; word-break: break-all; color: #28a745; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>URL Shortener</h2>
+        <input type="text" id="urlInput" placeholder="Havolani kiriting (https://...)">
+        <button onclick="shorten()">Qisqartirish</button>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        async function shorten() { 
+            const url = document.getElementById('urlInput').value;
+            if (!url) return;
+            
+            const res = await fetch(`/shorten?url=${encodeURIComponent(url)}`);
+            const text = await res.text();
+            document.getElementById('result').innerHTML = text.replace('\n', '<br>');
+        }
+    </script>
+</body>
+</html>
